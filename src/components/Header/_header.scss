@@ -1,0 +1,144 @@
+.main-header {
+	display: flex;
+	height: 6.6rem;
+	padding: 0 8rem;
+	border-bottom: 1px solid rgba($color-black, 0.15);
+
+	&__brand {
+		display: flex;
+		align-items: center;
+
+		&:link,
+		&:visited {
+			color: $color-font-primary;
+			text-decoration: none;
+		}
+
+		&:hover {
+			color: $color-blue;
+		}
+	}
+
+	&__brand:hover &__brand-icon {
+		fill: $color-blue;
+	}
+
+	&__brand-icon {
+		display: block;
+		width: 3.6rem;
+		height: auto;
+
+		fill: $color-font-primary;
+		transition: fill 0.2s ease;
+	}
+
+	&__brand-text {
+		font-size: 2.2rem;
+		font-weight: 400;
+		margin-left: 1.4rem;
+		color: currentColor;
+		transition: color 0.2s ease;
+	}
+
+	&__nav {
+		margin-left: auto;
+		display: flex;
+	}
+}
+
+// Navigation
+.nav-list {
+	list-style: none;
+	display: flex;
+	// align-items: center;
+
+	&__item {
+		display: flex;
+		align-items: center;
+
+		&:not(:last-child) {
+			margin-right: 2.4rem;
+		}
+
+		&:hover .inner-list {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	&__link {
+		&:link,
+		&:visited {
+			text-decoration: none;
+			color: $color-font-primary;
+			font-size: 1.4rem;
+			font-weight: 400;
+			text-transform: uppercase;
+			letter-spacing: 0.3px;
+
+			transition: color 0.2s ease;
+		}
+
+		&:hover {
+			color: $color-blue;
+		}
+	}
+
+	&__inner {
+		color: $color-font-primary;
+		font-size: 1.4rem;
+		font-weight: 400;
+		text-transform: uppercase;
+		letter-spacing: 0.3px;
+
+		transition: color 0.2s ease;
+		cursor: default;
+		position: relative;
+
+		&:hover {
+			color: $color-blue;
+		}
+	}
+}
+
+// Inner navigation list
+.inner-list {
+	list-style: none;
+
+	background-color: $color-white;
+	border-radius: 5px;
+	box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+	padding: 2rem 2.4rem;
+	transition: opacity 0.4s ease;
+
+	position: absolute;
+	top: 2.5rem;
+	right: 0;
+
+	text-align: right;
+
+	// Initial state
+	visibility: hidden;
+	opacity: 0;
+
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+	}
+
+	&__link {
+		&:link,
+		&:visited {
+			display: block;
+
+			text-decoration: none;
+			color: $color-font-primary;
+			transition: color 0.2s ease;
+
+			&:hover {
+				color: $color-blue;
+			}
+		}
+	}
+}
