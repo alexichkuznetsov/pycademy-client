@@ -1,0 +1,167 @@
+.section-home {
+	margin-top: 4rem;
+}
+
+.cta {
+	&__logo-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		color: $color-font-primary;
+	}
+
+	&__logo-icon {
+		display: block;
+		width: 14rem;
+		height: 14rem;
+
+		margin-right: 3rem;
+
+		fill: currentColor;
+	}
+
+	&__logo-text {
+		font-size: 7.2rem;
+	}
+
+	&__text {
+		max-width: 72rem;
+		margin: 0 auto;
+		margin-top: 2.6rem;
+		padding-top: 4rem;
+
+		font-size: 2.4rem;
+		font-weight: 300;
+		text-align: center;
+
+		position: relative;
+
+		&::before {
+			content: '';
+
+			display: block;
+			width: 12rem;
+			height: 3px;
+
+			background-color: $color-font-primary;
+
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin-left: -6rem;
+		}
+	}
+
+	&__accent-text {
+		color: $color-blue;
+	}
+
+	&__btn-container {
+		margin-top: 3.6rem;
+		text-align: center;
+	}
+
+	&__btn {
+		display: inline-block;
+		padding: 1.6rem 2.4rem;
+
+		text-decoration: none;
+		font: inherit;
+		font-size: 1.6rem;
+		font-weight: 300;
+		color: $color-font-primary;
+
+		background-color: $color-blue;
+		border-radius: 5px;
+		transition: background-color 0.2s ease, transform 0.2s ease;
+
+		&:hover {
+			background-color: darken($color-blue, 5%);
+			transform: translateY(-2px);
+		}
+	}
+}
+
+.features-list {
+	list-style: none;
+	margin-top: 3.5rem;
+
+	&__item:nth-child(even) .feature-item {
+		flex-direction: row-reverse;
+
+		.feature-item__left-side {
+			justify-content: flex-start;
+		}
+
+		.feature-item__right-side {
+			text-align: right;
+		}
+
+		.feature-item__icon {
+			margin-right: 0;
+			margin-left: 8rem;
+		}
+	}
+}
+
+.feature-item {
+	display: flex;
+	padding: 6rem 0;
+	transition: background-color 0.2s ease, transform 0.2s ease,
+		box-shadow 0.2s ease;
+
+	&:hover {
+		background-color: $color-grey-dark-1;
+		transform: translateY(-3px) scale(1.01);
+		box-shadow: 0 0 1rem rgba($color-black, 0.1);
+
+		& .feature-item__icon {
+			fill: $color-blue;
+		}
+	}
+
+	&__left-side,
+	&__right-side {
+		flex: 1;
+	}
+
+	&__left-side {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+
+		margin-right: 4rem;
+	}
+
+	&__right-side {
+		padding: 3rem 4rem;
+	}
+
+	&__icon {
+		display: block;
+		width: 12rem;
+		height: 12rem;
+
+		margin-right: 8rem;
+
+		fill: $color-font-primary;
+		transition: fill 0.2s ease;
+	}
+
+	&__title {
+		font-size: 2.4rem;
+		font-weight: 300;
+
+		margin-bottom: 1.4rem;
+
+		backface-visibility: hidden;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+		font-weight: 500;
+
+		backface-visibility: hidden;
+	}
+}

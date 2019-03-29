@@ -7,7 +7,7 @@ import { logoutUser, showNotification } from '../../redux/actions';
 
 import Container from '../../containers/Container';
 
-import logo from './logo.svg';
+import logo from '../../assets/img/logo.svg';
 
 class Header extends Component {
 	constructor(props) {

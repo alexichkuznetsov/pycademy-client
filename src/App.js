@@ -6,7 +6,7 @@ import axios from 'axios';
 import { setUser } from './redux/actions';
 
 // Styles
-import './main.scss';
+import './assets/main.scss';
 
 // Components
 import HomePage from './pages/Home';
@@ -81,12 +81,7 @@ class App extends Component {
 							authenticated={authenticated}
 							component={LoginPage}
 						/>
-						{/* <Route path="/tasks" component={TasksPage} /> */}
-						<ProtectedRoute
-							path="/tasks"
-							authenticated={authenticated}
-							component={TasksPage}
-						/>
+						<Route path="/tasks" component={TasksPage} />
 					</Switch>
 				</Router>
 			</WithNotifications>

@@ -6,7 +6,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { loginUser, showNotification } from '../../../redux/actions';
 
-import logo from '../logo.svg';
+import logo from '../../../assets/img/logo.svg';
 
 class LoginPage extends Component {
 	constructor(props) {
@@ -53,6 +53,8 @@ class LoginPage extends Component {
 						() => this.setState({ error: '' }),
 						5000
 					);
+				} else if (err.response.status === 500) {
+					this.props.showNotification('Произошла ошибка на стороне сервера');
 				}
 			});
 	}

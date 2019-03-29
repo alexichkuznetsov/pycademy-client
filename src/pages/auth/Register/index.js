@@ -6,7 +6,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { showNotification } from '../../../redux/actions';
 
-import logo from '../logo.svg';
+import logo from '../../../assets/img/logo.svg';
 
 class RegisterPage extends Component {
 	constructor(props) {
@@ -53,6 +53,8 @@ class RegisterPage extends Component {
 					const { name, email, password, confirmPassword } = err.response.data;
 
 					this.setState({ errors: { name, email, password, confirmPassword } });
+				} else if (err.response.status === 500) {
+					this.props.showNotification('Произошла ошибка на стороне сервера');
 				}
 			});
 	}

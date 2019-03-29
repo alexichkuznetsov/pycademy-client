@@ -1,0 +1,16 @@
+.main-footer {
+	margin-top: 3rem;
+	padding: 2.4rem 0;
+	background-color: $color-grey-dark-1;
+	box-shadow: 0 0.5rem 1rem rgba($color-black, 0.1);
+
+	&__copy {
+		font-size: 1.5rem;
+		text-align: center;
+	}
+
+	&__link {
+		text-decoration: none;
+		color: $color-blue;
+	}
+}

@@ -8,7 +8,7 @@ import {
 	setAnimation
 } from '../../redux/actions';
 
-import closeIcon from './close.svg';
+import closeIcon from '../../assets/img/close.svg';
 
 class WithNotifications extends Component {
 	handleCloseClick = () => {

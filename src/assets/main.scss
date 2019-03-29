@@ -27,11 +27,12 @@ $color-grey-light-3: #bdbdbd;
 $color-grey-light-4: #e0e0e0;
 
 // Partials imports
-@import './components/Header/header';
-@import './components/Loader/loader';
-@import './pages/pages';
-@import './pages/auth/auth.scss';
-@import './hoc/WithNotifications/notify';
+@import '../components/Header/header';
+@import '../components/Footer/footer';
+@import '../components/Loader/loader';
+@import '../pages/auth/auth.scss';
+@import '../pages/Home/home.scss';
+@import '../hoc/WithNotifications/notify';
 
 // Global reset
 * {
