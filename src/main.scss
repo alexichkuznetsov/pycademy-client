@@ -1,19 +1,37 @@
 // Google Fonts
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&subset=cyrillic');
 
 // Color variables
-$color-font-primary: rgba(#000, 0.7);
-
 $color-white: #fff;
 $color-black: #000;
 
+$color-font-primary: rgba($color-white, 0.9);
+
 $color-white-1: #f5f5f5;
 
+$color-grey-1: #ddd;
+$color-grey-2: #ccc;
+
 $color-blue: #2980b9;
+$color-red: #eb4d4b;
+$color-green: #2ecc71;
+
+$color-grey-dark-1: #212121;
+$color-grey-dark-2: #303030;
+$color-grey-dark-3: #424242;
+$color-grey-dark-4: #494949;
+
+$color-grey-light-1: #747474;
+$color-grey-light-2: #898989;
+$color-grey-light-3: #bdbdbd;
+$color-grey-light-4: #e0e0e0;
 
 // Partials imports
 @import './components/Header/header';
+@import './components/Loader/loader';
 @import './pages/pages';
+@import './pages/auth/auth.scss';
+@import './hoc/WithNotifications/notify';
 
 // Global reset
 * {
@@ -32,12 +50,18 @@ html {
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
 	color: $color-font-primary;
 	text-rendering: optimizeLegibility;
 
+	background-color: $color-grey-dark-2;
 	box-sizing: border-box;
+}
+
+::selection {
+	background-color: $color-blue;
+	color: $color-white;
 }
 
 .container {

@@ -1,0 +1,190 @@
+.section-login {
+	height: 100vh;
+
+	position: relative;
+}
+
+.form-container {
+	width: 50rem;
+	padding: 4rem;
+
+	background-color: $color-grey-dark-3;
+	border: 1px solid $color-grey-dark-4;
+	border-radius: 5px;
+	box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	&__logo-box {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		margin-bottom: 2.8rem;
+
+		text-decoration: none;
+		color: $color-font-primary;
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: $color-blue;
+		}
+	}
+
+	&__logo-icon {
+		display: block;
+		width: 5rem;
+		height: 5rem;
+
+		margin-right: 1.2rem;
+
+		fill: currentColor;
+		transition: fill 0.2s ease;
+	}
+
+	&__logo-text {
+		font-size: 2.6rem;
+		font-weight: 300;
+	}
+
+	&__title {
+		font-size: 2rem;
+		font-weight: 500;
+		text-align: center;
+
+		margin-bottom: 2.4rem;
+	}
+}
+
+.form {
+	&__group {
+		padding: 0.2rem 0.4rem;
+		position: relative;
+
+		&--pull-right {
+			text-align: right;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 1.2rem;
+		}
+	}
+
+	&__input {
+		font-family: inherit;
+		font-size: 1.6rem;
+		font-weight: 400;
+		color: $color-font-primary;
+
+		display: block;
+		width: 100%;
+
+		padding: 1.4rem 1.8rem;
+
+		background-color: transparent;
+		border: 1px solid $color-grey-light-1;
+		border-radius: 5px;
+		transition: border-color 0.2s ease;
+
+		&:focus {
+			outline: none;
+			border-color: $color-blue;
+		}
+
+		&::placeholder {
+			color: transparent;
+		}
+	}
+
+	&__label {
+		display: block;
+		padding: 0.2rem 0.6rem;
+
+		background-color: $color-grey-dark-3;
+
+		font-size: 1.6rem;
+
+		position: absolute;
+		top: 1.4rem;
+		left: 2rem;
+		cursor: text;
+
+		transition: top 0.2s ease, left 0.2s ease, font-size 0.2s ease,
+			color 0.2s ease;
+	}
+
+	&__input:focus + &__label,
+	&__input:not(:placeholder-shown) + &__label {
+		top: -0.9rem;
+		left: 1.5rem;
+
+		font-size: 1.4rem;
+		cursor: default;
+	}
+
+	&__input:focus + &__label {
+		color: $color-blue;
+	}
+
+	&__error {
+		font-size: 1.2rem;
+		font-weight: 500;
+		color: $color-red;
+
+		margin-top: -0.4rem;
+		margin-bottom: 0.4rem;
+		padding-left: 1rem;
+	}
+
+	&__sub-error {
+		font-size: 1.2rem;
+		font-weight: 500;
+		color: $color-red;
+
+		margin-top: 0.4rem;
+		padding-left: 2.2rem;
+	}
+
+	&__sub-text {
+		font-size: 1.3rem;
+		color: $color-grey-light-4;
+		padding-left: 0.6rem;
+	}
+
+	&__link {
+		text-decoration: none;
+		font-size: 1.3rem;
+		font-weight: 700;
+		color: $color-blue;
+		margin-left: 0.4rem;
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: darken($color-blue, 5%);
+		}
+	}
+
+	&__submit-btn {
+		display: inline-block;
+		padding: 1rem 3rem;
+		margin-top: 1.2rem;
+
+		font-family: inherit;
+		font-size: 1.4rem;
+		font-weight: 500;
+		color: $color-font-primary;
+
+		background-color: $color-blue;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: background-color 0.2s ease;
+
+		&:hover {
+			background-color: darken($color-blue, 5%);
+		}
+	}
+}
