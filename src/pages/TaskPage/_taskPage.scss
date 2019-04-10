@@ -1,0 +1,59 @@
+.task-view {
+	margin: 3rem 0;
+	display: flex;
+
+	&__info {
+		flex: 75% 0 0;
+		padding: 0 1.6rem;
+
+		border-right: 1px solid $color-grey-dark-3;
+	}
+
+	&__meta {
+		flex: 1;
+		padding: 0 1.6rem;
+
+		font-size: 1.6rem;
+		text-align: right;
+	}
+
+	&__title {
+		font-size: 2.4rem;
+		color: $color-blue;
+	}
+
+	&__desc-container {
+		margin-top: 2rem;
+
+		max-height: 52rem;
+		overflow-y: scroll;
+	}
+
+	&__paragraph {
+		font-family: 'Merriweather', serif;
+		font-size: 1.6rem;
+		line-height: 1.5;
+		white-space: pre-line;
+
+		padding: 0 0.8rem;
+		text-indent: 1.6rem;
+
+		&:not(:last-child) {
+			margin-bottom: 1.2rem;
+		}
+	}
+
+	&__created-at-value {
+		font-size: 2.4rem;
+		color: $color-blue;
+	}
+
+	&__difficulty-value {
+		font-size: 2.4rem;
+		color: $color-blue;
+	}
+
+	&__editor-container {
+		margin-top: 2rem;
+	}
+}

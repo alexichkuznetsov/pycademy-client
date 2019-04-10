@@ -1,5 +1,7 @@
 // Google Fonts
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
 
 // Color variables
 $color-white: #fff;
@@ -32,6 +34,9 @@ $color-grey-light-4: #e0e0e0;
 @import '../components/Loader/loader';
 @import '../pages/auth/auth.scss';
 @import '../pages/Home/home.scss';
+@import '../pages/Tasks/tasksPage';
+@import '../pages/AddTask/addTask';
+@import '../pages/TaskPage/taskPage';
 @import '../hoc/WithNotifications/notify';
 
 // Global reset
@@ -69,4 +74,27 @@ body {
 	max-width: 120rem;
 	padding: 0 3rem;
 	margin: 0 auto;
+}
+
+.visually-hidden {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0 !important;
+	border: 0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+
+.mb-sm {
+	margin-bottom: 1.5rem !important;
+}
+
+.mb-md {
+	margin-bottom: 3rem !important;
+}
+
+.editor {
+	font-family: 'Consolas', monospace !important;
 }

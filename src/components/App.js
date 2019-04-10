@@ -3,20 +3,25 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-import { setUser } from './redux/actions';
+import { setUser } from '../redux/actions';
 
 // Styles
-import './assets/main.scss';
+import '../assets/main.scss';
 
 // Components
-import HomePage from './pages/Home';
-import TasksPage from './pages/Tasks';
-import RegisterPage from './pages/auth/Register';
-import LoginPage from './pages/auth/Login';
-import ProtectedRoute from './hoc/ProtectedRoute';
-import UnauthorizedRoute from './hoc/UnauthorizedRoute';
-import Loader from './components/Loader';
-import WithNotifications from './hoc/WithNotifications';
+import HomePage from '../pages/Home';
+import TasksPage from '../pages/Tasks';
+import RegisterPage from '../pages/auth/Register';
+import LoginPage from '../pages/auth/Login';
+import Loader from './Loader';
+import AddTaskPage from '../pages/AddTask';
+import TaskPage from '../pages/TaskPage';
+
+// Hoc
+import protectedRoute from '../hoc/protectedRoute';
+import unauthorizedRoute from '../hoc/unauthorizedRoute';
+import stuffRoute from '../hoc/stuffRoute';
+import WithNotifications from '../hoc/WithNotifications';
 
 class App extends Component {
 	constructor(props) {
@@ -59,7 +64,6 @@ class App extends Component {
 	}
 
 	render() {
-		const { authenticated } = this.props;
 		const { loading } = this.state;
 
 		if (loading) {
@@ -70,18 +74,23 @@ class App extends Component {
 			<WithNotifications>
 				<Router>
 					<Switch>
-						<Route exact path="/" component={HomePage} />
-						<UnauthorizedRoute
-							path="/register"
-							authenticated={authenticated}
-							component={RegisterPage}
-						/>
-						<UnauthorizedRoute
+						<Route exact path="/" component={unauthorizedRoute(HomePage)} />
+						<Route
+							exact
 							path="/login"
-							authenticated={authenticated}
-							component={LoginPage}
+							component={unauthorizedRoute(LoginPage)}
 						/>
-						<Route path="/tasks" component={TasksPage} />
+						<Route
+							path="/register"
+							component={unauthorizedRoute(RegisterPage)}
+						/>
+						<Route
+							exact
+							path="/tasks/add"
+							component={stuffRoute(AddTaskPage)}
+						/>
+						<Route path="/tasks/:id" component={protectedRoute(TaskPage)} />
+						<Route exact path="/tasks" component={protectedRoute(TasksPage)} />
 					</Switch>
 				</Router>
 			</WithNotifications>

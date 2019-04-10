@@ -1,0 +1,61 @@
+.addtask-form {
+	margin-top: 3.6rem;
+	margin-bottom: 4rem;
+
+	.form__label {
+		background-color: $color-grey-dark-2;
+	}
+
+	.form__textarea {
+		resize: none;
+		height: 24rem;
+	}
+
+	.form__checkbox-label {
+		position: relative;
+		cursor: pointer;
+
+		&::before {
+			content: '';
+
+			display: block;
+			width: 2.4rem;
+			height: 2.4rem;
+
+			border: 3px solid $color-blue;
+			border-radius: 100px;
+
+			position: absolute;
+			top: 50%;
+			left: -2.4rem;
+			margin-top: -1.3rem;
+		}
+
+		&::after {
+			content: '';
+
+			display: block;
+			width: 1.2rem;
+			height: 1.2rem;
+
+			background-color: $color-blue;
+			border-radius: 100px;
+
+			position: absolute;
+			top: 50%;
+			left: -1.8rem;
+			margin-top: -0.7rem;
+
+			opacity: 0;
+			transition: opacity 0.2s ease;
+		}
+	}
+
+	.form__checkbox:checked + .form__checkbox-label::after {
+		opacity: 1;
+	}
+
+	.form__editor {
+		margin-top: 2.4rem;
+	}
+}

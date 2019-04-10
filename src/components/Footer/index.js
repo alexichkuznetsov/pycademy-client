@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Container from '../../containers/Container';
-
 function Footer(props) {
 	return (
 		<footer className="main-footer">
