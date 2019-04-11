@@ -1,0 +1,70 @@
+.task-editor {
+	max-width: 120rem;
+	margin: 6rem auto;
+
+	&__task-title {
+		font-size: 2.4rem;
+		font-weight: 500;
+	}
+
+	&__task-description {
+		max-height: 24rem;
+		overflow-y: auto;
+
+		margin-top: 2.4rem;
+		padding: 0 3rem;
+		font-size: 1.4rem;
+		font-family: 'Merriweather', serif;
+		white-space: pre-line;
+	}
+
+	&__controls {
+		margin-top: 2rem;
+		padding: 0 3rem;
+
+		display: flex;
+		align-items: center;
+	}
+
+	&__btn {
+		border: none;
+		border-radius: 5px;
+		padding: 1.2rem 1.4rem;
+
+		background-color: transparent;
+		color: $color-font-primary;
+
+		font: inherit;
+		font-size: 1.4rem;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		outline: none;
+
+		&:not(:last-child) {
+			margin-right: 1.4rem;
+		}
+
+		&:hover {
+			background-color: $color-grey-dark-3;
+		}
+	}
+
+	&__editor-container {
+		display: flex;
+		margin-top: 2rem;
+		padding: 0 3rem;
+
+		div {
+			flex: 1;
+
+			&:first-child {
+				border-right: 1px solid $color-grey-dark-4;
+			}
+		}
+	}
+
+	&__editor {
+		font-family: 'Consolas', monospace !important;
+		font-size: 2rem !important;
+	}
+}

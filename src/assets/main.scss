@@ -37,6 +37,7 @@ $color-grey-light-4: #e0e0e0;
 @import '../pages/Tasks/tasksPage';
 @import '../pages/AddTask/addTask';
 @import '../pages/TaskPage/taskPage';
+@import '../pages/TaskEditor/taskEditor';
 @import '../hoc/WithNotifications/notify';
 
 // Global reset
@@ -97,4 +98,31 @@ body {
 
 .editor {
 	font-family: 'Consolas', monospace !important;
+}
+
+.section__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.link {
+	&:link,
+	&:visited {
+		display: inline-block;
+		border: 1px solid transparent;
+		border-radius: 5px;
+		padding: 0.8rem 1.4rem;
+
+		text-decoration: none;
+		color: $color-font-primary;
+		font-size: 1.4rem;
+		font-weight: 500;
+		transition: all 0.2s ease;
+
+		&:hover {
+			background-color: $color-grey-dark-3;
+			border-color: $color-grey-dark-3;
+		}
+	}
 }

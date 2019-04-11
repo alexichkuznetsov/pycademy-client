@@ -16,6 +16,7 @@ import LoginPage from '../pages/auth/Login';
 import Loader from './Loader';
 import AddTaskPage from '../pages/AddTask';
 import TaskPage from '../pages/TaskPage';
+import TaskEditor from '../pages/TaskEditor/TaskEditor';
 
 // Hoc
 import protectedRoute from '../hoc/protectedRoute';
@@ -88,6 +89,10 @@ class App extends Component {
 							exact
 							path="/tasks/add"
 							component={stuffRoute(AddTaskPage)}
+						/>
+						<Route
+							path="/tasks/:id/editor"
+							component={protectedRoute(TaskEditor)}
 						/>
 						<Route path="/tasks/:id" component={protectedRoute(TaskPage)} />
 						<Route exact path="/tasks" component={protectedRoute(TasksPage)} />

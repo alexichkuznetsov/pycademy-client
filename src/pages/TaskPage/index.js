@@ -2,6 +2,9 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Editor from 'react-ace';
+import 'brace/mode/python';
+import 'brace/theme/twilight';
+import { Link } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import Container from '../../containers/Container';
@@ -79,7 +82,15 @@ class TaskPage extends Component {
 				<Header />
 				<Container>
 					<section className="section">
-						<h2 className="section__title">Просмотр задания</h2>
+						<div className="section__header">
+							<h2 className="section__title">Просмотр задания</h2>
+							<Link
+								to={`/tasks/${this.props.match.params.id}/editor`}
+								className="link"
+							>
+								Перейти к выполнению
+							</Link>
+						</div>
 						<div className="task-view">
 							<div className="task-view__info">
 								<h3 className="task-view__title">{title}</h3>
