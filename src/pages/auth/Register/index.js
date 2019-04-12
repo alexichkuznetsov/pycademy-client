@@ -45,6 +45,7 @@ class RegisterPage extends Component {
 			.then(res => {
 				if (res.status === 201) {
 					this.props.showNotification('Вы успешно зарегистрировались');
+
 					this.props.history.push('/login');
 				}
 			})

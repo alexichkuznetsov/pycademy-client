@@ -7,7 +7,7 @@ import 'brace/theme/twilight';
 
 import Loader from '../../components/Loader';
 
-import { showNotification } from '../../redux/actions';
+import { showNotification, hideNotification } from '../../redux/actions';
 
 class TaskEditor extends Component {
 	state = {
@@ -51,16 +51,27 @@ class TaskEditor extends Component {
 
 	handleCheckClick = async () => {
 		const { code } = this.state;
+		const { id } = this.props.match.params;
+
+		this.setState({ output: '' });
 
 		if (code.length) {
 			try {
-				const res = await axios.post('/api/tasks/check', { code });
-				const { err, data } = res.data;
+				const res = await axios.post('/api/tasks/check', { code, id });
+				const { err, data, check } = res.data;
 
 				if (err) {
 					this.setState({ output: err });
 				} else {
 					this.setState({ output: data });
+				}
+
+				if (check) {
+					this.props.showNotification('Задание успешно выполнено');
+
+					if (this.timeOut) clearTimeout(this.timeOut);
+
+					this.timeOut = setTimeout(() => this.props.hideNotification(), 2000);
 				}
 			} catch (err) {
 				console.log('Error from handleCheckClick()');
@@ -85,7 +96,12 @@ class TaskEditor extends Component {
 					<button className="task-editor__btn" onClick={this.handleCheckClick}>
 						Проверить решение
 					</button>
-					<button className="task-editor__btn">Закончить выполнение</button>
+					<button
+						className="task-editor__btn"
+						onClick={() => this.props.history.push('/tasks')}
+					>
+						Вернуться
+					</button>
 				</div>
 				<div className="task-editor__editor-container">
 					<div>
@@ -120,5 +136,5 @@ class TaskEditor extends Component {
 
 export default connect(
 	null,
-	{ showNotification }
+	{ showNotification, hideNotification }
 )(TaskEditor);
