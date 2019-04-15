@@ -1,6 +1,6 @@
 .task-editor {
 	max-width: 120rem;
-	margin: 6rem auto;
+	margin: 4rem auto;
 
 	&__task-title {
 		font-size: 2.4rem;
@@ -54,7 +54,7 @@
 		margin-top: 2rem;
 		padding: 0 3rem;
 
-		div {
+		& > div {
 			flex: 1;
 
 			&:first-child {
@@ -66,5 +66,9 @@
 	&__editor {
 		font-family: 'Consolas', monospace !important;
 		font-size: 2rem !important;
+
+		&--readonly .ace_cursor {
+			opacity: 0 !important;
+		}
 	}
 }

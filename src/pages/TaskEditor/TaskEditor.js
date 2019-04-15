@@ -7,7 +7,7 @@ import 'brace/theme/twilight';
 
 import Loader from '../../components/Loader';
 
-import { showNotification, hideNotification } from '../../redux/actions';
+import { showNotification } from '../../redux/actions';
 
 class TaskEditor extends Component {
 	state = {
@@ -68,10 +68,6 @@ class TaskEditor extends Component {
 
 				if (check) {
 					this.props.showNotification('Задание успешно выполнено');
-
-					if (this.timeOut) clearTimeout(this.timeOut);
-
-					this.timeOut = setTimeout(() => this.props.hideNotification(), 2000);
 				}
 			} catch (err) {
 				console.log('Error from handleCheckClick()');
@@ -110,6 +106,7 @@ class TaskEditor extends Component {
 							theme="twilight"
 							className="task-editor__editor"
 							width="100%"
+							height="70rem"
 							value={code}
 							onChange={this.handleEditorChange}
 							wrapEnabled={true}
@@ -119,8 +116,9 @@ class TaskEditor extends Component {
 						<Editor
 							mode="python"
 							theme="twilight"
-							className="task-editor__editor"
+							className="task-editor__editor task-editor__editor--readonly"
 							width="100%"
+							height="70rem"
 							value={output}
 							wrapEnabled={true}
 							highlightActiveLine={false}
@@ -136,5 +134,5 @@ class TaskEditor extends Component {
 
 export default connect(
 	null,
-	{ showNotification, hideNotification }
+	{ showNotification }
 )(TaskEditor);

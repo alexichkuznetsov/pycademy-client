@@ -66,7 +66,11 @@ export const showNotification = message => dispatch => {
 
 	dispatch(setAnimation('sliding-in'));
 
-	setTimeout(() => dispatch(setAnimation(false)), 500);
+	setTimeout(() => {
+		dispatch(setAnimation(false));
+
+		setTimeout(() => dispatch(hideNotification()), 3000);
+	}, 500);
 };
 
 export const hideNotification = () => dispatch => {
