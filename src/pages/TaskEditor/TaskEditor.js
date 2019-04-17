@@ -27,12 +27,16 @@ class TaskEditor extends Component {
 
 			const res = await axios.get(`/api/tasks/${id}`);
 
-			const { title, description, _id } = res.data;
+			const { _id, title, description, mainURL } = res.data;
+
+			const code = `url = '${mainURL}'`;
+
 			this.setState({
 				loading: false,
 				taskId: _id,
 				title,
-				description
+				description,
+				code
 			});
 		} catch (err) {
 			if (err.response.status === 404) {
@@ -49,29 +53,60 @@ class TaskEditor extends Component {
 
 	handleEditorChange = value => this.setState({ code: value });
 
-	handleCheckClick = async () => {
+	handleExecuteClick = async () => {
 		const { code } = this.state;
-		const { id } = this.props.match.params;
 
 		this.setState({ output: '' });
 
 		if (code.length) {
 			try {
-				const res = await axios.post('/api/tasks/check', { code, id });
-				const { err, data, check } = res.data;
+				const res = await axios.post('/api/tasks/execute', { code });
+				const { err, data } = res.data;
 
 				if (err) {
 					this.setState({ output: err });
 				} else {
 					this.setState({ output: data });
 				}
-
-				if (check) {
-					this.props.showNotification('Задание успешно выполнено');
-				}
 			} catch (err) {
-				console.log('Error from handleCheckClick()');
+				console.log('Error from handleExecuteClick()');
+				console.error(err);
 			}
+		}
+	};
+
+	handleCheckClick = async () => {
+		// const { code } = this.state;
+		// const { id } = this.props.match.params;
+
+		// this.setState({ output: '' });
+
+		// if (code.length) {
+		// 	try {
+		// 		const res = await axios.post('/api/tasks/check', { code, id });
+		// 		const { err, data, check } = res.data;
+
+		// 		if (err) {
+		// 			this.setState({ output: err });
+		// 		} else {
+		// 			this.setState({ output: data });
+		// 		}
+
+		// 		if (check) {
+		// 			this.props.showNotification('Задание успешно выполнено');
+		// 		}
+		// 	} catch (err) {
+		// 		console.log('Error from handleCheckClick()');
+		// 	}
+		// }
+		const { code } = this.state;
+		const { id } = this.props.match.params;
+
+		if (code.length) {
+			const response = await axios.post('/api/tasks/check', { code, id });
+			const { msg } = response.data;
+
+			this.props.showNotification(msg);
 		}
 	};
 
@@ -89,6 +124,12 @@ class TaskEditor extends Component {
 					<p className="task-editor__task-description">{description}</p>
 				</div>
 				<div className="task-editor__controls">
+					<button
+						className="task-editor__btn"
+						onClick={this.handleExecuteClick}
+					>
+						Запустить
+					</button>
 					<button className="task-editor__btn" onClick={this.handleCheckClick}>
 						Проверить решение
 					</button>

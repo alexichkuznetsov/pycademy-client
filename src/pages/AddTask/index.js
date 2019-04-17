@@ -19,8 +19,11 @@ class AddTaskPage extends Component {
 				description: '',
 				difficulty: '',
 				solution: '',
-				includeCodeSnippet: false,
+				mainURL: '',
+				additionalSolution: '',
+				additionalURL: '',
 				codeSnippet: '',
+				includeCodeSnippet: false,
 				isSolutionArray: false
 			}
 		};
@@ -48,16 +51,29 @@ class AddTaskPage extends Component {
 			description,
 			difficulty,
 			solution,
+			mainURL,
+			additionalSolution,
+			additionalURL,
 			codeSnippet,
 			isSolutionArray
 		} = this.state.form;
 
 		if (isSolutionArray) {
 			solution = solution.split(',');
+			additionalSolution = additionalSolution.split(',');
 		}
 
 		this.props.addTask(
-			{ title, description, difficulty, solution, codeSnippet },
+			{
+				title,
+				description,
+				difficulty,
+				solution,
+				mainURL,
+				additionalSolution,
+				additionalURL,
+				codeSnippet
+			},
 			this.props.history.push
 		);
 	}
@@ -80,9 +96,12 @@ class AddTaskPage extends Component {
 			description,
 			difficulty,
 			solution,
+			mainURL,
 			includeCodeSnippet,
 			codeSnippet,
-			isSolutionArray
+			isSolutionArray,
+			additionalSolution,
+			additionalURL
 		} = this.state.form;
 
 		const { errors } = this.props;
@@ -177,6 +196,59 @@ class AddTaskPage extends Component {
 										Решение является массивом?
 									</label>
 								</div>
+								<div className="form__group mt-md">
+									<input
+										type="text"
+										name="mainURL"
+										id="mainURL"
+										className="form__input"
+										placeholder="Ссылка для решения задания"
+										value={mainURL}
+										onChange={this.handleInputChange}
+									/>
+									<label className="form__label" htmlFor="mainURL">
+										Ссылка для решения задания
+									</label>
+									{errors.mainURL && (
+										<p className="form__sub-error">{errors.mainURL}</p>
+									)}
+								</div>
+								<div className="form__group">
+									<input
+										type="text"
+										name="additionalSolution"
+										id="additionalSolution"
+										className="form__input"
+										placeholder="Дополнительное решение для проверки"
+										value={additionalSolution}
+										onChange={this.handleInputChange}
+									/>
+									<label htmlFor="additionalSolution" className="form__label">
+										Дополнительное решение для проверки
+									</label>
+									{errors.additionalSolution && (
+										<p className="form__sub-error">
+											{errors.additionalSolution}
+										</p>
+									)}
+								</div>
+								<div className="form__group">
+									<input
+										type="text"
+										name="additionalURL"
+										id="additionalURL"
+										className="form__input"
+										placeholder="Дополнительный URL для проверки"
+										value={additionalURL}
+										onChange={this.handleInputChange}
+									/>
+									<label htmlFor="additionalURL" className="form__label">
+										Дополнительный URL для проверки
+									</label>
+									{errors.additionalURL && (
+										<p className="form__sub-error">{errors.additionalURL}</p>
+									)}
+								</div>
 								<div className="form__group mb-sm">
 									<input
 										type="checkbox"
@@ -228,7 +300,10 @@ function mapStateToProps(state) {
 			title: state.tasks.addTaskErrors.title,
 			description: state.tasks.addTaskErrors.description,
 			difficulty: state.tasks.addTaskErrors.difficulty,
-			solution: state.tasks.addTaskErrors.solution
+			solution: state.tasks.addTaskErrors.solution,
+			additionalSolution: state.tasks.addTaskErrors.additionalSolution,
+			additionalURL: state.tasks.addTaskErrors.additionalURL,
+			mainURL: state.tasks.addTaskErrors.mainURL
 		}
 	};
 }

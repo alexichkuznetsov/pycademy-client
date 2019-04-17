@@ -8,6 +8,7 @@
 	position: fixed;
 	bottom: 3rem;
 	right: 4rem;
+	z-index: 9999;
 
 	background-color: $color-grey-dark-3;
 	box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
