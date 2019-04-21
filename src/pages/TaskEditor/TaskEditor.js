@@ -76,29 +76,6 @@ class TaskEditor extends Component {
 	};
 
 	handleCheckClick = async () => {
-		// const { code } = this.state;
-		// const { id } = this.props.match.params;
-
-		// this.setState({ output: '' });
-
-		// if (code.length) {
-		// 	try {
-		// 		const res = await axios.post('/api/tasks/check', { code, id });
-		// 		const { err, data, check } = res.data;
-
-		// 		if (err) {
-		// 			this.setState({ output: err });
-		// 		} else {
-		// 			this.setState({ output: data });
-		// 		}
-
-		// 		if (check) {
-		// 			this.props.showNotification('Задание успешно выполнено');
-		// 		}
-		// 	} catch (err) {
-		// 		console.log('Error from handleCheckClick()');
-		// 	}
-		// }
 		const { code } = this.state;
 		const { id } = this.props.match.params;
 

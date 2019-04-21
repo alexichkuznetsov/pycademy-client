@@ -17,6 +17,7 @@ import Loader from './Loader';
 import AddTaskPage from '../pages/AddTask';
 import TaskPage from '../pages/TaskPage';
 import TaskEditor from '../pages/TaskEditor/TaskEditor';
+import Profile from '../components/Profile/Profile';
 
 // Hoc
 import protectedRoute from '../hoc/protectedRoute';
@@ -96,6 +97,7 @@ class App extends Component {
 						/>
 						<Route path="/tasks/:id" component={protectedRoute(TaskPage)} />
 						<Route exact path="/tasks" component={protectedRoute(TasksPage)} />
+						<Route exact path="/profile" component={protectedRoute(Profile)} />
 					</Switch>
 				</Router>
 			</WithNotifications>

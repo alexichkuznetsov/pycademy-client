@@ -14,7 +14,10 @@ import {
 	RESET_TASK_ERRORS,
 	DELETE_TASK_START,
 	DELETE_TASK_FINISH,
-	DELETE_TASK_ERROR
+	DELETE_TASK_ERROR,
+	GET_PROFILE_START,
+	GET_PROFILE_FINISH,
+	GET_PROFILE_ERROR
 } from './types';
 import axios from 'axios';
 
@@ -160,4 +163,23 @@ export const deleteTask = id => dispatch => {
 				payload: err.response
 			})
 		);
+};
+
+// Profile action creator
+export const getProfile = () => async dispatch => {
+	dispatch({
+		type: GET_PROFILE_START
+	});
+
+	try {
+		const response = await axios.get('/api/users/profile');
+		dispatch({
+			type: GET_PROFILE_FINISH,
+			payload: response.data
+		});
+	} catch (err) {
+		dispatch({
+			type: GET_PROFILE_ERROR
+		});
+	}
 };

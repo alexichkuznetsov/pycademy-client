@@ -1,0 +1,67 @@
+.stats {
+	margin-top: 2rem;
+	display: flex;
+
+	&__total,
+	&__info {
+		flex: 1;
+	}
+
+	&__total {
+		text-align: center;
+	}
+
+	&__tasks-passed-title {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	&__tasks-passed {
+		font-size: 3rem;
+	}
+
+	&__tasks-overall {
+		font-size: 4.2rem;
+	}
+
+	&__list-title {
+		font-size: 3rem;
+		text-align: right;
+		margin-bottom: 1rem;
+		padding-right: 3rem;
+	}
+}
+
+.tasks-passed-list {
+	list-style: none;
+	padding: 1.2rem 3rem;
+
+	&__item {
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		cursor: pointer;
+
+		&:not(:last-child) {
+			margin-bottom: 1.4rem;
+		}
+
+		&:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 1rem 1rem rgba($color-black, 0.1);
+		}
+	}
+
+	&__link {
+		display: block;
+		text-decoration: none;
+		color: $color-font-primary;
+		padding: 1.6rem 2.4rem;
+		font-size: 1.4rem;
+		background-color: $color-grey-dark-4;
+		border-radius: 3px;
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: $color-blue;
+		}
+	}
+}

@@ -39,6 +39,7 @@ $color-grey-light-4: #e0e0e0;
 @import '../pages/TaskPage/taskPage';
 @import '../pages/TaskEditor/taskEditor';
 @import '../hoc/WithNotifications/notify';
+@import '../components/Profile/profile';
 
 // Global reset
 * {
